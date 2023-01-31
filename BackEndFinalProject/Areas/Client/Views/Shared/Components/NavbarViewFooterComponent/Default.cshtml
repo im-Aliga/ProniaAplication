@@ -1,0 +1,16 @@
+﻿@*@using BackEndFinalProject.Database.Models
+@model List<Navbar>
+
+@foreach (var navItem in Model)
+{
+    <div class="footer-title">
+        <h3>@navItem.Title</h3>
+    </div>
+    <ul class="footer-list normal-list">
+        @foreach (var subNav in navItem.SubNavbars)
+        {
+            <li><a href="#">@subNav.Title</a></li>
+        }
+
+    </ul>
+}*@
