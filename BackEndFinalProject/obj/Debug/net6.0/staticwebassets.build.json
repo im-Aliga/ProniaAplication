@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "RKSDV+h5sza2cXGY5VcXG5ohGZQu7aXtoXO36jp2ZhM=",
+  "Hash": "Xm003wm0F6T/hGRi1AG6RCYeAtls8/MTEQ0D7tQAHP8=",
   "Source": "BackEndFinalProject",
   "BasePath": "_content/BackEndFinalProject",
   "Mode": "Default",
@@ -19159,6 +19159,40 @@
       "OriginalItemSpec": "wwwroot\\client\\custom-files\\blogs\\645a896f-ccc1-4a1d-986c-337cd6f15f00.mp4"
     },
     {
+      "Identity": "C:\\Users\\ASUS\\Desktop\\BackEndFinalProject\\BackEndFinalProject\\wwwroot\\client\\custom-files\\blogs\\99919d3c-54e4-4f31-a379-3f2da67eb26f.mp4",
+      "SourceId": "BackEndFinalProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\ASUS\\Desktop\\BackEndFinalProject\\BackEndFinalProject\\wwwroot\\",
+      "BasePath": "_content/BackEndFinalProject",
+      "RelativePath": "client/custom-files/blogs/99919d3c-54e4-4f31-a379-3f2da67eb26f.mp4",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\client\\custom-files\\blogs\\99919d3c-54e4-4f31-a379-3f2da67eb26f.mp4"
+    },
+    {
+      "Identity": "C:\\Users\\ASUS\\Desktop\\BackEndFinalProject\\BackEndFinalProject\\wwwroot\\client\\custom-files\\blogs\\c12ba1f0-d841-4dbd-9a83-3f74c2944893.jpg",
+      "SourceId": "BackEndFinalProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\ASUS\\Desktop\\BackEndFinalProject\\BackEndFinalProject\\wwwroot\\",
+      "BasePath": "_content/BackEndFinalProject",
+      "RelativePath": "client/custom-files/blogs/c12ba1f0-d841-4dbd-9a83-3f74c2944893.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\client\\custom-files\\blogs\\c12ba1f0-d841-4dbd-9a83-3f74c2944893.jpg"
+    },
+    {
       "Identity": "C:\\Users\\ASUS\\Desktop\\BackEndFinalProject\\BackEndFinalProject\\wwwroot\\client\\custom-files\\blogs\\d40f2b04-8ff2-41d7-95c1-f4d475b1331f.jpg",
       "SourceId": "BackEndFinalProject",
       "SourceType": "Discovered",
@@ -19174,23 +19208,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\client\\custom-files\\blogs\\d40f2b04-8ff2-41d7-95c1-f4d475b1331f.jpg"
-    },
-    {
-      "Identity": "C:\\Users\\ASUS\\Desktop\\BackEndFinalProject\\BackEndFinalProject\\wwwroot\\client\\custom-files\\blogs\\da81cdfe-2846-43b2-a8fe-6cbcdb94542e.jpg",
-      "SourceId": "BackEndFinalProject",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\ASUS\\Desktop\\BackEndFinalProject\\BackEndFinalProject\\wwwroot\\",
-      "BasePath": "_content/BackEndFinalProject",
-      "RelativePath": "client/custom-files/blogs/da81cdfe-2846-43b2-a8fe-6cbcdb94542e.jpg",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\client\\custom-files\\blogs\\da81cdfe-2846-43b2-a8fe-6cbcdb94542e.jpg"
     },
     {
       "Identity": "C:\\Users\\ASUS\\Desktop\\BackEndFinalProject\\BackEndFinalProject\\wwwroot\\client\\custom-files\\blogs\\f4c93f54-790f-420a-81ba-1415d76711bf.mp4",
