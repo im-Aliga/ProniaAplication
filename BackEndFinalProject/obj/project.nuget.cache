@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "h3gIwaSTd1yZK2KWCbJ0NivcP3qSgCAs2BgK/ls4Q6jRewmNjiJJSLX35wGuHLkSAM7jG+JknWHn9Sm6ObxK4Q==",
+  "dgSpecHash": "p2aoNFHD7SkU6xPeFdwAlnfRbUASY4u9fsZIOfT97FtSKkHBVyFI1eNwPHM1AqhYU8bAG4odwPuudlUdLt87uQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\ASUS\\Desktop\\BackEndFinalProject\\BackEndFinalProject\\BackEndFinalProject.csproj",
+  "projectFilePath": "C:\\Users\\ASUS\\Desktop\\Pronia\\ProniaAplication\\BackEndFinalProject\\BackEndFinalProject.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ASUS\\.nuget\\packages\\aspnetcore.iservicecollection.addiurlhelper\\1.1.0\\aspnetcore.iservicecollection.addiurlhelper.1.1.0.nupkg.sha512",
     "C:\\Users\\ASUS\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",

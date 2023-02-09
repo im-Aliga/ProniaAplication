@@ -26,17 +26,20 @@ namespace BackEndFinalProject.Areas.Admin.Controllers
             _fileService = fileService;
         }
 
+        #region List
         [HttpGet("list", Name = "admin-feedback-list")]
         public async Task<IActionResult> ListAsync()
         {
             var model = await _dataContext.FeedBacks
                 .Select(u => new ListFeedBackViewModel(
-                  u.Id, u.FullName, u.Context, u.Role, _fileService.GetFileUrl(u.ProfilePhoteInFileSystem, UploadDirectory.FeedBack),u.CreatedAt,u.UpdatedAt))
+                  u.Id, u.FullName, u.Context, u.Role, _fileService.GetFileUrl(u.ProfilePhoteInFileSystem, UploadDirectory.FeedBack), u.CreatedAt, u.UpdatedAt))
                 .ToListAsync();
 
             return View(model);
         }
+        #endregion
 
+        #region Add
         [HttpGet("add", Name = "admin-feedback-add")]
         public async Task<IActionResult> AddAsync()
         {
@@ -79,6 +82,9 @@ namespace BackEndFinalProject.Areas.Admin.Controllers
                 await _dataContext.SaveChangesAsync();
             }
         }
+        #endregion
+
+        #region Update
         [HttpGet("update/{id}", Name = "admin-feedback-update")]
         public async Task<IActionResult> UpdateAsync([FromRoute] int id)
         {
@@ -93,7 +99,7 @@ namespace BackEndFinalProject.Areas.Admin.Controllers
                 Id = feedBack.Id,
                 FullName = feedBack.FullName,
                 Context = feedBack.Context,
-                Role= feedBack.Role,
+                Role = feedBack.Role,
                 ImageUrl = _fileService.GetFileUrl(feedBack.ProfilePhoteInFileSystem, UploadDirectory.FeedBack)
             };
 
@@ -133,12 +139,15 @@ namespace BackEndFinalProject.Areas.Admin.Controllers
             {
                 feedBack.FullName = model.FullName;
                 feedBack.Context = model.Context;
-                feedBack.Role=model.Role;
+                feedBack.Role = model.Role;
                 feedBack.ProfilePhoteImageName = imageName;
                 feedBack.ProfilePhoteInFileSystem = imageNameInFileSystem;
                 await _dataContext.SaveChangesAsync();
             }
         }
+        #endregion
+
+        #region Delete
         [HttpPost("delete/{id}", Name = "admin-feedback-delete")]
         public async Task<IActionResult> DeleteAsync([FromRoute] int id)
         {
@@ -154,6 +163,7 @@ namespace BackEndFinalProject.Areas.Admin.Controllers
             await _dataContext.SaveChangesAsync();
 
             return RedirectToRoute("admin-feedback-list");
-        }
+        } 
+        #endregion
     }
 }

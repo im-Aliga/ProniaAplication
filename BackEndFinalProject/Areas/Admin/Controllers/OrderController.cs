@@ -26,24 +26,24 @@ namespace BackEndFinalProject.Areas.Admin.Controllers
             _fileService = fileService;
             _emailService = emailService;
         }
+        #region List
         [HttpGet("list", Name = "admin-order-list")]
         public async Task<IActionResult> ListAsync()
         {
             var model = await _dataContext.Orders
                 .Select(u => new ListOrderViewModel(
-                  u.Id,u.Status,u.Total, u.CreatedAt, u.UpdatedAt))
+                  u.Id, u.Status, u.Total, u.CreatedAt, u.UpdatedAt))
                 .ToListAsync();
 
             return View(model);
         }
+        #endregion
 
-
-       
-
+        #region Update
         [HttpGet("update/{id}", Name = "admin-order-update")]
         public async Task<IActionResult> UpdateAsync([FromRoute] string id)
         {
-            var order = await _dataContext.Orders.FirstOrDefaultAsync(n => n.Id ==id);
+            var order = await _dataContext.Orders.FirstOrDefaultAsync(n => n.Id == id);
 
 
             if (order is null) return NotFound();
@@ -59,7 +59,7 @@ namespace BackEndFinalProject.Areas.Admin.Controllers
         [HttpPost("update/{id}", Name = "admin-order-update")]
         public async Task<IActionResult> UpdateAsync(string id, UpdateOrderViewModel model)
         {
-            var order = await _dataContext.Orders.Include(u=>u.User).Include(o => o.OrderProducts).FirstOrDefaultAsync(o => o.Id == id);
+            var order = await _dataContext.Orders.Include(u => u.User).Include(o => o.OrderProducts).FirstOrDefaultAsync(o => o.Id == id);
 
             if (order is null)
             {
@@ -82,6 +82,7 @@ namespace BackEndFinalProject.Areas.Admin.Controllers
             }
         }
 
+        #endregion
     }
 }
 

@@ -24,6 +24,8 @@ namespace BackEndFinalProject.Areas.Admin.Controllers
             _dataContext = dataContext;
             _fileService = fileService;
         }
+
+        #region List
         [HttpGet("list", Name = "admin-reward-list")]
         public async Task<IActionResult> ListAsync()
         {
@@ -34,8 +36,9 @@ namespace BackEndFinalProject.Areas.Admin.Controllers
 
             return View(model);
         }
+        #endregion
 
-
+        #region Add
         [HttpGet("add", Name = "admin-reward-add")]
         public async Task<IActionResult> AddAsync()
         {
@@ -65,7 +68,7 @@ namespace BackEndFinalProject.Areas.Admin.Controllers
             {
                 var reward = new Reward
                 {
-                  
+
                     BgImageName = imageName,
                     BgImageNameInFileSystem = imageNameInSystem,
                     CreatedAt = DateTime.Now,
@@ -76,7 +79,9 @@ namespace BackEndFinalProject.Areas.Admin.Controllers
                 await _dataContext.SaveChangesAsync();
             }
         }
+        #endregion
 
+        #region Update
         [HttpGet("update/{id}", Name = "admin-reward-update")]
         public async Task<IActionResult> UpdateAsync([FromRoute] int id)
         {
@@ -90,7 +95,7 @@ namespace BackEndFinalProject.Areas.Admin.Controllers
             {
                 Id = reward.Id,
                 ImageUrl = _fileService.GetFileUrl(reward.BgImageNameInFileSystem, UploadDirectory.Reward)
-            
+
             };
 
             return View(model);
@@ -127,11 +132,14 @@ namespace BackEndFinalProject.Areas.Admin.Controllers
 
             async Task UpdateRewardAsync(string imageName, string imageNameInFileSystem)
             {
-               
+
                 reward.BgImageName = imageName;
                 reward.BgImageNameInFileSystem = imageNameInFileSystem;
                 await _dataContext.SaveChangesAsync();
             }
-        }
+        } 
+        #endregion
+
+
     }
 }

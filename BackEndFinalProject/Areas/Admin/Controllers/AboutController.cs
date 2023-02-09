@@ -20,6 +20,8 @@ namespace BackEndFinalProject.Areas.Admin.Controllers
             _logger = logger;
         }
 
+        #region List
+
         [HttpGet("list", Name = "admin-about-list")]
         public async Task<IActionResult> ListAsync()
         {
@@ -29,7 +31,9 @@ namespace BackEndFinalProject.Areas.Admin.Controllers
 
             return View(model);
         }
+        #endregion
 
+        #region Update
         [HttpGet("update/{id}", Name = "admin-about-update")]
         public async Task<IActionResult> UpdateAsync([FromRoute] int id)
         {
@@ -75,6 +79,7 @@ namespace BackEndFinalProject.Areas.Admin.Controllers
 
             return RedirectToRoute("admin-about-list");
 
-        }
+        } 
+        #endregion
     }
 }

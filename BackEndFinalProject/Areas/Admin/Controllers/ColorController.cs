@@ -22,15 +22,19 @@ namespace BackEndFinalProject.Areas.Admin.Controllers
             _logger = logger;
         }
 
+        #region List
         [HttpGet("list", Name = "admin-color-list")]
         public async Task<IActionResult> ListAsync()
         {
             var model = await _dataContext.Colors
-                .Select(c => new ListItemViewModel(c.Id, c. Name))
+                .Select(c => new ListItemViewModel(c.Id, c.Name))
                 .ToListAsync();
 
             return View(model);
         }
+        #endregion
+
+        #region Add
         [HttpGet("add", Name = "admin-color-add")]
         public async Task<IActionResult> AddAsync()
         {
@@ -44,7 +48,7 @@ namespace BackEndFinalProject.Areas.Admin.Controllers
 
             var color = new Color
             {
-                
+
                 Name = model.Name,
                 CreatedAt = DateTime.Now,
                 UpdatedAt = DateTime.Now,
@@ -55,6 +59,9 @@ namespace BackEndFinalProject.Areas.Admin.Controllers
             await _dataContext.SaveChangesAsync();
             return RedirectToRoute("admin-color-list");
         }
+        #endregion
+
+        #region Update
         [HttpGet("update/{id}", Name = "admin-color-update")]
         public async Task<IActionResult> UpdateAsync([FromRoute] int id)
         {
@@ -67,7 +74,7 @@ namespace BackEndFinalProject.Areas.Admin.Controllers
             {
                 Id = id,
                 Name = color.Name,
-               
+
 
             };
 
@@ -95,14 +102,15 @@ namespace BackEndFinalProject.Areas.Admin.Controllers
 
 
             color.Name = model.Name;
-           
+
             await _dataContext.SaveChangesAsync();
 
             return RedirectToRoute("admin-color-list");
 
         }
+        #endregion
 
-
+        #region Delete
         [HttpPost("delete/{id}", Name = "admin-color-delete")]
         public async Task<IActionResult> DeleteAsync(UpdateViewModel model)
         {
@@ -117,6 +125,7 @@ namespace BackEndFinalProject.Areas.Admin.Controllers
 
             return RedirectToRoute("admin-color-list");
 
-        }
+        } 
+        #endregion
     }
 }

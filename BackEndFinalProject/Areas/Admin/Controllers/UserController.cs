@@ -116,17 +116,19 @@ namespace BackEndFinalProject.Areas.Admin.Controllers
         }
         #endregion
 
+        #region Update
         [HttpGet("update/{id}", Name = "admin-user-update")]
         public async Task<IActionResult> UpdateAsync([FromRoute] Guid id)
         {
-            var user = await _dataContext.Users.FirstOrDefaultAsync(u =>u.Id==id);
+            var user = await _dataContext.Users.FirstOrDefaultAsync(u => u.Id == id);
             if (user is null)
             {
                 return NotFound();
             }
 
             var model = new UserUpdateViewModel
-            {   Id=user.Id,
+            {
+                Id = user.Id,
                 FirstName = user.FirstName,
                 LastName = user.LastName,
                 Email = user.Email,
@@ -142,7 +144,7 @@ namespace BackEndFinalProject.Areas.Admin.Controllers
         {
             if (!ModelState.IsValid)
             {
-                
+
                 return View(model);
             }
 
@@ -156,7 +158,7 @@ namespace BackEndFinalProject.Areas.Admin.Controllers
             user.LastName = model.LastName;
             user.Email = model.Email;
             user.RoleId = model.RoleId;
-            user.UpdatedAt=DateTime.Now;
+            user.UpdatedAt = DateTime.Now;
 
 
 
@@ -165,9 +167,9 @@ namespace BackEndFinalProject.Areas.Admin.Controllers
 
             return RedirectToRoute("admin-user-list");
         }
+        #endregion
 
-
-
+        #region Delete
         [HttpPost("delete/{id}", Name = "admin-user-delete")]
         public async Task<IActionResult> DeleteAsync(Guid id)
         {
@@ -181,6 +183,7 @@ namespace BackEndFinalProject.Areas.Admin.Controllers
             await _dataContext.SaveChangesAsync();
 
             return RedirectToRoute("admin-user-list");
-        }
+        } 
+        #endregion
     }
 }

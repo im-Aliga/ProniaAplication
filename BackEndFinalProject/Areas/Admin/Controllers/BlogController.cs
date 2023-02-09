@@ -23,6 +23,7 @@ namespace BackEndFinalProject.Areas.Admin.Controllers
             _logger = logger;
 
         }
+        #region List
         [HttpGet("list", Name = "admin-blog-list")]
         public async Task<IActionResult> ListAsync()
         {
@@ -35,7 +36,9 @@ namespace BackEndFinalProject.Areas.Admin.Controllers
 
             return View(model);
         }
+        #endregion
 
+        #region Add
         [HttpGet("add", Name = "admin-blog-add")]
         public async Task<IActionResult> AddAsync()
         {
@@ -85,6 +88,7 @@ namespace BackEndFinalProject.Areas.Admin.Controllers
 
 
 
+            #region GetView
             IActionResult GetView(AddViewModel model)
             {
 
@@ -99,8 +103,10 @@ namespace BackEndFinalProject.Areas.Admin.Controllers
 
                 return View(model);
             }
+            #endregion
 
 
+            #region AddBlog
             async void AddBlog()
             {
                 var blog = new Blog
@@ -124,14 +130,14 @@ namespace BackEndFinalProject.Areas.Admin.Controllers
                     await _dataContext.BlogAndBlogCategories.AddAsync(BlogCatagory);
                 }
 
-               
+
 
                 foreach (var tagId in model.TagIds)
                 {
                     var blogTag = new BlogAndBlogTag
                     {
                         BlogTagId = tagId,
-                        Blog=blog,
+                        Blog = blog,
                     };
 
                     await _dataContext.BlogAndBlogTags.AddAsync(blogTag);
@@ -139,8 +145,11 @@ namespace BackEndFinalProject.Areas.Admin.Controllers
 
 
             }
+            #endregion
         }
+        #endregion
 
+        #region Update
         [HttpGet("update/{id}", Name = "admin-blog-update")]
         public async Task<IActionResult> UpdateAsync([FromRoute] int id)
         {
@@ -218,6 +227,7 @@ namespace BackEndFinalProject.Areas.Admin.Controllers
 
 
 
+            #region GetView
             IActionResult GetView(UpdateViewModel model)
             {
                 model.Categories = _dataContext.BlogCategories
@@ -233,6 +243,8 @@ namespace BackEndFinalProject.Areas.Admin.Controllers
 
                 return View(model);
             }
+            #endregion
+            #region UpdateBlog
             async Task UpdateBlogAsync()
             {
                 blog.Title = model.Title;
@@ -258,7 +270,7 @@ namespace BackEndFinalProject.Areas.Admin.Controllers
                 }
                 #endregion
 
-                
+
 
                 #region Tag
                 var tagInDb = blog.BlogTags.Select(bc => bc.BlogTagId).ToList();
@@ -280,9 +292,10 @@ namespace BackEndFinalProject.Areas.Admin.Controllers
                 }
                 #endregion
             }
+            #endregion
 
-        }
-
+        } 
+        #endregion
 
         #region Delete
         [HttpPost("delete/{id}", Name = "admin-blog-delete")]

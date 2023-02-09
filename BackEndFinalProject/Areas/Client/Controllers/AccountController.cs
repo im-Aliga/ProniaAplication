@@ -42,21 +42,21 @@ namespace BackEndFinalProject.Areas.Client.Controllers
                .ToListAsync();
             return View(model);
         }
-        [HttpGet("orderview/{id}", Name = "client-orderview-dashboard")]
-        public async Task<IActionResult> OrderViewAsync(int id)
-        {
-            var plant = await _dataContext.OrderProducts.Include(p => p.Plant)
-               .FirstOrDefaultAsync(p => p.Id == id);
+        //[HttpGet("orderview/{id}", Name = "client-orderview-dashboard")]
+        //public async Task<IActionResult> OrderViewAsync(int id)
+        //{
+        //    var plant = await _dataContext.OrderProducts.Include(p => p.Plant)
+        //       .FirstOrDefaultAsync(p => p.Id == id);
 
-            if (plant is null)
-            {
-                return NotFound();
-            }
-
-
+        //    if (plant is null)
+        //    {
+        //        return NotFound();
+        //    }
 
 
-        }
+
+
+        //}
 
 
         [HttpGet("adress", Name = "client-adress-dashboard")]

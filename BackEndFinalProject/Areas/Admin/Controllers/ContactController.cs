@@ -19,14 +19,16 @@ namespace BackEndFinalProject.Areas.Admin.Controllers
             _dataContext = dataContext;
             _logger = logger;
         }
+        #region List
         [HttpGet("list", Name = "admin-contact-list")]
         public async Task<IActionResult> ListAsync()
         {
             var model = await _dataContext.Contacts
-                .Select(c => new ListContactViewModel(c.FirstName, c.LastName,c.Phone,c.Email,c.Message))
+                .Select(c => new ListContactViewModel(c.FirstName, c.LastName, c.Phone, c.Email, c.Message))
                 .ToListAsync();
 
             return View(model);
-        }
+        } 
+        #endregion
     }
 }

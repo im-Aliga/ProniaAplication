@@ -89,6 +89,7 @@ namespace BackEndFinalProject.Areas.Admin.Controllers
         }
         #endregion
 
+        #region Delete
         [HttpPost("{blogId}/image/{blogFileId}/delete", Name = "admin-blogfile-delete")]
         public async Task<IActionResult> Delete([FromRoute] int blogId, [FromRoute] int blogFileId)
         {
@@ -108,6 +109,7 @@ namespace BackEndFinalProject.Areas.Admin.Controllers
 
             return RedirectToRoute("admin-blogfile-list", new { BlogId = blogId });
 
-        }
+        } 
+        #endregion
     }
 }

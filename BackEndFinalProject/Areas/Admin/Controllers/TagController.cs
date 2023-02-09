@@ -22,6 +22,7 @@ namespace BackEndFinalProject.Areas.Admin.Controllers
             _logger = logger;
         }
 
+        #region List
         [HttpGet("list", Name = "admin-tag-list")]
         public async Task<IActionResult> ListAsync()
         {
@@ -31,6 +32,9 @@ namespace BackEndFinalProject.Areas.Admin.Controllers
 
             return View(model);
         }
+        #endregion
+
+        #region Add
         [HttpGet("add", Name = "admin-tag-add")]
         public async Task<IActionResult> AddAsync()
         {
@@ -55,6 +59,9 @@ namespace BackEndFinalProject.Areas.Admin.Controllers
             await _dataContext.SaveChangesAsync();
             return RedirectToRoute("admin-tag-list");
         }
+        #endregion
+
+        #region Update
         [HttpGet("update/{id}", Name = "admin-tag-update")]
         public async Task<IActionResult> UpdateAsync([FromRoute] int id)
         {
@@ -101,8 +108,9 @@ namespace BackEndFinalProject.Areas.Admin.Controllers
             return RedirectToRoute("admin-tag-list");
 
         }
+        #endregion
 
-
+        #region Delete
         [HttpPost("delete/{id}", Name = "admin-tag-delete")]
         public async Task<IActionResult> DeleteAsync(UpdateViewModel model)
         {
@@ -119,6 +127,7 @@ namespace BackEndFinalProject.Areas.Admin.Controllers
 
         }
 
+        #endregion
 
     }
 }

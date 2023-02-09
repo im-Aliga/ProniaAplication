@@ -23,6 +23,7 @@ namespace BackEndFinalProject.Areas.Admin.Controllers
             _logger = logger;
         }
 
+        #region List
         [HttpGet("list", Name = "admin-category-list")]
         public async Task<IActionResult> ListAsync()
         {
@@ -32,7 +33,9 @@ namespace BackEndFinalProject.Areas.Admin.Controllers
 
             return View(model);
         }
+        #endregion
 
+        #region Add
         [HttpGet("add", Name = "admin-category-add")]
         public async Task<IActionResult> AddAsync()
         {
@@ -46,7 +49,7 @@ namespace BackEndFinalProject.Areas.Admin.Controllers
 
             var category = new Category
             {
-                ParentId=model.ParentId,
+                ParentId = model.ParentId,
                 Title = model.Name,
                 CreatedAt = DateTime.Now,
                 UpdatedAt = DateTime.Now,
@@ -57,7 +60,9 @@ namespace BackEndFinalProject.Areas.Admin.Controllers
             await _dataContext.SaveChangesAsync();
             return RedirectToRoute("admin-category-list");
         }
+        #endregion
 
+        #region Update
         [HttpGet("update/{id}", Name = "admin-category-update")]
         public async Task<IActionResult> UpdateAsync([FromRoute] int id)
         {
@@ -70,8 +75,8 @@ namespace BackEndFinalProject.Areas.Admin.Controllers
             {
                 Id = id,
                 Name = category.Title,
-                ParentId= category.ParentId
-                
+                ParentId = category.ParentId
+
             };
 
             return View(model);
@@ -105,7 +110,9 @@ namespace BackEndFinalProject.Areas.Admin.Controllers
 
         }
 
-        
+        #endregion
+
+        #region Delete
         [HttpPost("delete/{id}", Name = "admin-category-delete")]
         public async Task<IActionResult> DeleteAsync(UpdateViewModel model)
         {
@@ -120,6 +127,7 @@ namespace BackEndFinalProject.Areas.Admin.Controllers
 
             return RedirectToRoute("admin-category-list");
 
-        }
+        } 
+        #endregion
     }
 }
